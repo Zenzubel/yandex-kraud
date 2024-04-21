@@ -1,0 +1,266 @@
+.bg-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	z-index: 0;
+	overflow: hidden;
+	transition-duration: 0.3s;
+
+	&--chess {
+
+		&:before, 
+		&:after {
+			position: absolute;
+			content: "";
+			z-index: 6;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			animation-duration: 2s;
+			transition-timing-function: ease;
+			animation-iteration-count: 1;
+			animation-direction: alternate;
+			animation-fill-mode: forwards;
+		}
+
+		&:before {
+			bottom: -3%;
+			right: 42%;
+			width: 100px;
+			height: 142px;
+			background-image: url('../images/main-screen/chess-horse.png');
+
+			@media (min-width: $media-768) {
+				opacity: 0;
+				right: 34%;
+				bottom: -7%;
+				width: 197px;
+				height: 269px;
+
+				animation-name: horse;
+				animation-delay: 2s;
+				transform: translateX(-49%);
+
+				@keyframes horse {
+					0% {
+						opacity: 0;
+						transform: translateX(-100%);
+					};
+					100% {
+						opacity: 1;
+						transform: translateX(-50%);
+					}
+				}
+			};
+
+			@media (min-width: $media-991) {
+				right: 26.5%;
+			};
+		}
+
+		@media (min-width: $media-991) {
+
+			&:after {
+				bottom: 3%;
+				right: 15%;
+				width: 83px;
+				height: 123px;
+				background-image: url('../images/main-screen/chess-pawn.png');
+
+				animation-name: pawn;
+				animation-delay: 2s;
+				transform: translateX(-49%);
+
+				@keyframes pawn {
+					0% {
+						opacity: 0;
+						transform: translateX(100%);
+					};
+					100% {
+						opacity: 1;
+						transform: translateX(-38%);
+					}
+				}
+			}
+		};
+	}
+
+	&--back {
+		transform: translateX(-50%);
+	}
+
+	&--sun,
+	&--city, 
+	&--king, 
+	&--qween {
+		animation-duration: 0.6s;
+		transition-timing-function: ease;
+		animation-iteration-count: 1;
+		animation-direction: alternate;
+		animation-fill-mode: forwards;
+
+		@media (min-width: $media-480) {
+			transform: translate(-50%, 15%) scale(0.7);
+		};
+	}
+
+	@media (min-width: $media-768) {
+		top: -60px;
+		left: 65%;
+		opacity: 0;
+		// transform: translateX(-49%); active if remuve animation
+		&--back {
+			opacity: 1;
+		}
+
+		// animation
+		&--sun,
+		&--city, 
+		&--king, 
+		&--qween {
+			transform: translateX(-49%) scale(1);
+
+			animation-duration: 0.6s;
+			transition-timing-function: ease;
+			animation-iteration-count: 1;
+			animation-direction: alternate;
+			animation-fill-mode: forwards;
+		}
+
+		&--sun {
+			top: -10%;
+			animation-name: sun;
+			animation-delay: 0.7s;
+			transform: translateX(-49%);
+
+			@keyframes sun {
+				0% {
+					opacity: 0;
+					transform: translate(-49%, 100%);
+				};
+				100% {
+					opacity: 1;
+					transform: translate(-49%, -9%);
+				}
+			}
+		}
+
+		&--city {
+			animation-name: city;
+			animation-delay: 0.6s;
+
+			@keyframes city {
+				0% {
+					opacity: 0;
+					transform: translateX(-45%);
+				};
+				100% {
+					opacity: 1;
+					transform: translateX(-49%);
+				}
+			}
+		}
+
+		&--king {
+			animation-delay: 1s;
+		}
+	 
+		&--qween {
+			animation-delay: 1.2s;
+		}
+
+		&--king, 
+		&--qween {
+			top: 0;
+			// left: 0;
+			animation-name: king;
+			transform: translateX(-49%);
+
+			@keyframes king {
+				0% {
+					opacity: 0;
+					transform: translate(-49%, 100%);
+				};
+				100% {
+					opacity: 1;
+					transform: translate(-49%, 0);
+				}
+			}
+		}
+	};
+
+	@media (min-width: $media-991) {
+		top: 0;
+		left: 48.5%;
+	};
+}
+
+.bg-picture {
+	object-fit: cover;
+	object-position: center;
+}
+
+.btn-dark,
+.btn-light {
+	width: 100%;
+	border-radius: 60px;
+	border: 2px solid $deepgray;
+	transition-duration: 0.3s;
+}
+
+.btn-dark {
+	color: $white;
+	background-color: $deepgray;
+
+	@media (any-hover: hover){
+
+		&:hover {
+			color: $deepgray;
+			background-color: $mango;
+		}
+	};
+}
+
+.btn-light {
+	color: $deepgray;
+	background-color: transparent;
+
+	&--mod {
+
+		@media (max-width: $media-768) {
+			background-color: $white;
+			border: 2px solid $white;
+		};
+	}
+
+	@media (any-hover: hover){
+
+		&:hover {
+			color: $white;
+			background-color: $deepgray;
+		}
+	};
+}
+
+.head-text {
+	text-transform: uppercase;
+	font-family: $Merriweather-Regular;
+	font-size: 36px;
+	line-height: 48 / 36 * 100%;
+
+	@media (max-width: $container-width) {
+		font-size: calc(27.5px + (36 - 27.5) * ((100vw - 320px) / (#{$container-calc} - 320)));
+	};
+}
+
+.img-style {
+
+	source, img {
+		max-width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}

@@ -1,0 +1,14 @@
+.DC_Store
+.AppIeDouble
+.LSOverride
+node_modules/
+maket
+package-lock.json
+.sublime
+my-icons
+font-weight.txt
+repo.txt
+www.txt
+kit
+.jshintrc
+.cdr
