@@ -249,7 +249,7 @@
 	text-transform: uppercase;
 	font-family: $Merriweather-Regular;
 	font-size: 36px;
-	line-height: 48 / 36 * 100%;
+	line-height: 49 / 36 * 100%;
 
 	@media (max-width: $container-width) {
 		font-size: calc(27.5px + (36 - 27.5) * ((100vw - 320px) / (#{$container-calc} - 320)));

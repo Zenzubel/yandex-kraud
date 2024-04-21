@@ -32,10 +32,7 @@ body {
 	max-width: $container-width;
 	margin: 0 auto;
 	width: 100%;
-
-	@media (max-width: 1240px) {
-		padding: 0 20px;
-	};
+	padding: 0 20px;
 }
 @import "_global_style.scss";
 @import "_content.scss";

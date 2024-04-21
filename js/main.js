@@ -51,10 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (mediaQuery.matches) {
 			changeSrc('.add-src-js', 'src');
 			changeSrc('.add-srcset-js', 'srcset');
-			replaceText('.replace-js', '.replace-contaner-js', 'div', 'support__item-text', 'head-text');
 		}
 	}
 	media('(max-width: 767px)');
+
+	function media2(width) {
+		const mediaQuery = window.matchMedia(width);
+
+		if (mediaQuery.matches) {
+			replaceText('.replace-js', '.replace-contaner-js', 'div', 'support__item-text', 'head-text');
+		}
+	}
+	media2('(max-width: 768px)');
 	// end media query
 
 	// start dinamic remove
