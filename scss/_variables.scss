@@ -18,13 +18,14 @@ $Merriweather-Bold:                'Merriweather-Bold';
 //ui-colors
 $white:                                          white;
 $shaft:                                        #313131;
-$shaft-lighten:                    lighten($shaft, 70);
-$shaft-lighten:                    lighten($shaft, 60);
+$shaft-lighten-30:                 lighten($shaft, 30);
+$shaft-lighten-40:                 lighten($shaft, 40);
 $deepgray:                                     #1F1F1F;
 $flamingo:                                     #F54932;
 $azure:                                        #3057A2;
 $pearlbush:                                    #E9DED4;
 $alto:                                         #D6D6D6;
+$lightalto:                                    #D0D0D0;
 $mango:                                        #FBCE51;
 
 

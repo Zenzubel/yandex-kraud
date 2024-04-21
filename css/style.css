@@ -251,6 +251,11 @@ body.lock {
   line-height: 133.33333%;
 }
 
+.head-text-type {
+  font-family: "Merriweather-Bold";
+  color: #F54932;
+}
+
 .img-style source,
 .img-style img {
   max-width: 100%;
@@ -454,13 +459,96 @@ body.lock {
   margin: 25px 0;
 }
 
-.support__text-font {
-  font-family: "Merriweather-Bold";
-  color: #F54932;
-}
-
 .support__image-box {
   text-align: center;
+}
+
+.session__wrapper {
+  padding: 17px 0 0 0;
+}
+
+.session__body {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.session__image-box {
+  position: relative;
+}
+
+.session__image--anim,
+.session__image--rub,
+.session__image--big-boom,
+.session__image--man,
+.session__image--lil-boom,
+.session__image--horse,
+.session__image--hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.session__info-box {
+  padding: 0 20px;
+}
+
+.session__table-box {
+  font-family: "GolosText-Regular";
+  font-size: 20px;
+  line-height: 110%;
+}
+
+.session__table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.session__table-cell {
+  padding: 16px 16px 16px 0;
+  border-top: 2px solid #D0D0D0;
+}
+
+.session__table-cell:nth-child(2) {
+  padding: 0 0 0 16px;
+  border-left: 2px solid #D0D0D0;
+  font-family: "GolosText-SemiBold";
+  color: #313131;
+}
+
+.session__table-tr {
+  color: #7e7e7e;
+}
+
+.session__table-tr--top .session__table-cell {
+  border-top: none;
+  padding: 0 0 16px 16px;
+}
+
+.session__table-tr--top .session__table-cell:nth-child(1) {
+  padding: 0 0 16px 0;
+}
+
+.session__table-tr--bottom .session__table-cell {
+  padding: 16px 0 0 16px;
+}
+
+.session__table-tr--bottom .session__table-cell:nth-child(1) {
+  padding: 16px 0 0 0;
+}
+
+.session__note {
+  margin: 48px 0 0 0;
+  color: #3057A2;
+}
+
+.session__table-cell-line {
+  text-decoration: line-through;
+  -webkit-text-decoration-color: #F54932;
+  text-decoration-color: #F54932;
 }
 
 @media (min-width: 479.98px) {
@@ -741,6 +829,24 @@ body.lock {
   .main-screen__wrapper {
     height: 700px;
   }
+
+  .session__body {
+    display: flex;
+  }
+
+  .session__item-piture {
+    flex: 0 0 46.72131%;
+  }
+
+  .session__info-box {
+    padding: 0 20px 0 0;
+  }
+}
+
+@media (min-width: 1366px) {
+  .session__info-box {
+    padding: 0;
+  }
 }
 
 @media (min-width: 1920px) {
@@ -828,6 +934,10 @@ body.lock {
 
   .main-screen__link {
     height: 47px;
+  }
+
+  .session__note {
+    margin: 40px 0 0 0;
   }
 }
 
