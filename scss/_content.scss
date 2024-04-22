@@ -415,7 +415,7 @@
 		line-height: 22 / 20 * 100%;
 
 		@media (min-width: $media-991) {
-			margin: 60px 0 0 0;
+			margin: 62px 0 0 0;
 		};
 	}
 	// .session__table
@@ -427,7 +427,7 @@
 	// .session__table-cell
 	&__table-cell {
 		white-space: nowrap;
-		padding: 16px 22px 16px 0;
+		padding: 16px 21px 16px 0;
 		border-top: none;
 
 		&:nth-child(1) {
@@ -564,18 +564,52 @@
 .stage {
 	// .stage__wrapper
 	&__wrapper {
+		padding-top: 163px;
+
+		padding-bottom: 300px;
+
+		@media (max-width: $container-width) {
+			padding-top: calc(120px + (163 - 120) * ((100vw - 320px) / (#{$container-calc} - 320)));
+		};
 	}
 	// .stage__body
 	&__body {
 	}
-	// .stage__title
-	&__title {
+	// .stage__title-box
+	&__title-box {
+		max-width: 800px;
+		margin-bottom: 56px;
 	}
 	// .stage__title-head
 	&__title-head {
+		display: inline;
+
+		@media (max-width: 365px) {
+
+			&.h2-text {
+				font-size: 30px;
+			}
+		};
 	}
 	// .stage__note
 	&__note {
+		display: block;
+		max-width: 100%;
+		margin: 10px 0 0 0;
+		font-family: $GolosText-Regular;
+		font-size: 20px;
+		line-height: 24 / 20 * 100%;
+		color: $azure;
+
+		@media (max-width: $container-width) {
+			font-size: calc(16.5px + (20 - 16.5) * ((100vw - 320px) / (#{$container-calc} - 320)));
+		};
+
+		@media (min-width: 560px) {
+			display: inline-block;
+			max-width: 260px;
+			margin: 0 0 0 14px;
+		};
 	}
 	// .stage__container
 	&__container {
@@ -585,36 +619,126 @@
 	}
 	// .stage__row
 	&__row {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 112px 112px 1fr;
+		gap: 20px;
+		grid-template-areas: "stage__cell-one stage__cell-two stage__cell-tree" 
+		"stage__cell-four stage__cell-five stage__cell-tree" 
+		"stage__cell-six stage__cell-seven stage__cell-seven";
+
+		&:before {
+			position: absolute;
+			content: "";
+			bottom: 13px;
+			right: -63px;
+			width: 400px;
+			height: 200px;
+			background-image: url('../images/stage/plane.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			@media (max-width: 1260px) {
+				bottom: 180px;
+				width: 350px;
+				height: 150px;
+			};
+		}
+
+		@media (max-width: 1260px) {
+			grid-template-rows: 1fr 1fr 1fr;
+		};
 	}
 	// .stage__cell
 	&__cell {
+		padding: 20px 20px 20px 72px;
+		background-image: url('../images/stage/bg-desc.jpg');
+		background-repeat: repeat;
+		background-position: top left;
+		background-size: cover;
 		// .stage__cell--one
 		&--one {
+			grid-area: stage__cell-one;
 		}
 		// .stage__cell--two
 		&--two {
-		}
-		// .stage__cell--four
-		&--four {
-		}
-		// .stage__cell--five
-		&--five {
-		}
-		// .stage__cell--six
-		&--six {
+			grid-area: stage__cell-two;
 		}
 		// .stage__cell--tree
 		&--tree {
+			grid-area: stage__cell-tree;
+
+			@media (min-width: $media-768) {
+				
+			};
+		}
+		// .stage__cell--four
+		&--four {
+			grid-area: stage__cell-four;
+		}
+		// .stage__cell--five
+		&--five {
+			grid-area: stage__cell-five;
+		}
+		// .stage__cell--six
+		&--six {
+			grid-area: stage__cell-six;
 		}
 		// .stage__cell--seven
 		&--seven {
+			grid-area: stage__cell-seven;
+
+			& .stage__cell-list-item{
+				max-width: 450px;
+
+				@media (max-width: 1260px) {
+					max-width: 100%
+				};
+			}
+		}
+
+		&--one, 
+		&--two, 
+		&--four, 
+		&--five {
+
+			@media (min-width: $media-768) {
+				
+			};
 		}
 	}
 	// .stage__cell-list
 	&__cell-list {
+		
 	}
 	// .stage__cell-list-item
 	&__cell-list-item {
+		position: relative;
+		font-family: $GolosText-Medium;
+		font-size: 20px;
+		line-height: 24 / 20 * 100%;
+
+		&:before {
+			position: absolute;
+			content: attr(data-num);
+			top: 1px;
+			left: -52px;
+			width: 36px;
+			height: 36px;
+			text-align: center;
+			background: $white;
+			border-radius: 50%;
+			color: $shaft;
+			font-family: $GolosText-SemiBold;
+			font-size: 20px;
+			line-height: 36px;
+		}
+
+		@media (max-width: $container-width) {
+			font-size: calc(16.5px + (20 - 16.5) * ((100vw - 320px) / (#{$container-calc} - 320)));
+		};
 	}
 }
 // end stage

@@ -167,7 +167,7 @@
 		&--king {
 			animation-delay: 1s;
 		}
-	 
+
 		&--qween {
 			animation-delay: 1.2s;
 		}
@@ -245,7 +245,19 @@
 	};
 }
 
-.head-text {
+.h2-text {
+	text-transform: uppercase;
+	font-family: $Merriweather-Regular;
+	font-size: 54px;
+	line-height: 62 / 54 * 100%;
+	color: $shaft;
+
+	@media (max-width: $container-width) {
+		font-size: calc(35.5px + (54 - 35.5) * ((100vw - 320px) / (#{$container-calc} - 320)));
+	};
+}
+
+.h3-text {
 	text-transform: uppercase;
 	font-family: $Merriweather-Regular;
 	font-size: 36px;
@@ -256,7 +268,7 @@
 	};
 }
 
-.head-text-type {
+.h3-text-type {
 	font-family: $Merriweather-Bold;
 	color: $flamingo;
 }
