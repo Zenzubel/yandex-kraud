@@ -462,7 +462,7 @@ body.lock {
 
 .support__item-image {
   max-width: 100%;
-  margin: 25px 0;
+  margin: 24px 0;
 }
 
 .support__image-box {
@@ -480,35 +480,31 @@ body.lock {
   margin: 0 auto;
 }
 
-.session__image-box {
-  position: relative;
-}
-
-.session__image {
-  width: 420px;
+.session__item-piture {
+  max-width: 370px;
   margin: 0 auto;
 }
 
-.session__image--anim,
-.session__image--rub,
-.session__image--big-boom,
-.session__image--man,
-.session__image--lil-boom,
-.session__image--horse,
-.session__image--hand {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 420;
-  transform: translate(-50%, -50%);
+.session__image-box {
+  position: relative;
+  text-align: center;
 }
 
-.session__img {
+.session__image {
+  width: 100%;
+}
+
+.session__image source,
+.session__image img {
   max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
 }
 
 .session__table-box {
-  margin: 44px 0 0 0;
+  margin: 45px 0 0 0;
   font-family: "GolosText-Regular";
   font-size: 20px;
   line-height: 110%;
@@ -558,7 +554,7 @@ body.lock {
 }
 
 .session__note {
-  margin: 40px 0 0 0;
+  margin: 41px 0 0 0;
   color: #3057A2;
 }
 
@@ -566,7 +562,7 @@ body.lock {
   text-decoration: line-through;
   -webkit-text-decoration-color: #F54932;
   text-decoration-color: #F54932;
-  margin: 0 6px 0 0;
+  margin: 0 8px 0 0;
 }
 
 @media (min-width: 479.98px) {
@@ -859,13 +855,18 @@ body.lock {
     margin: 0;
   }
 
+  .session__item-piture {
+    flex: 0 0 42.77778%;
+    max-width: 100%;
+  }
+
   .session__item-about {
     padding: 0 20px 0 0;
   }
 
   .session__image-box {
     padding: 0 15px 0 0;
-    transform: translate(-8px, -8px);
+    transform: translate(-1px, -8px);
   }
 
   .session__info-box {
@@ -878,32 +879,6 @@ body.lock {
 
   .session__note {
     margin: 51px 0 0 0;
-  }
-}
-
-@media (min-width: 1366px) {
-  .session__item-piture {
-    flex: 0 0 41.26984%;
-  }
-
-  .session__image--anim,
-  .session__image--rub,
-  .session__image--big-boom,
-  .session__image--man,
-  .session__image--lil-boom,
-  .session__image--horse,
-  .session__image--hand {
-    width: 530px;
-    height: 609px;
-  }
-
-  .session__image {
-    width: 530px;
-    height: 609px;
-  }
-
-  .session__img {
-    width: 100%;
   }
 }
 
@@ -1011,8 +986,12 @@ body.lock {
     height: 47px;
   }
 
+  .session__image-box {
+    margin: 20px -20px 8px;
+  }
+
   .session__table-cell:nth-child(2) {
-    padding: 12px 0 0 0;
+    padding: 14px 0 0 0;
     border: none;
   }
 
@@ -1026,7 +1005,7 @@ body.lock {
   }
 
   .session__table-tr--top .session__table-cell:nth-child(2) {
-    padding: 12px 0 0 0;
+    padding: 14px 0 0 0;
   }
 
   .session__table-tr--bottom .session__table-cell {
@@ -1035,7 +1014,7 @@ body.lock {
   }
 
   .session__table-tr--bottom .session__table-cell:nth-child(2) {
-    padding: 12px 0 0 0;
+    padding: 14px 0 0 0;
   }
 
   .session__table-tr {
@@ -1061,7 +1040,11 @@ body.lock {
   }
 
   .session__table-tr--noflex .session__table-cell:nth-child(2) {
-    padding: 0 0 0 10px;
+    padding: 0 0 0 13px;
+  }
+
+  .session__note {
+    font-size: 18px;
   }
 }
 
