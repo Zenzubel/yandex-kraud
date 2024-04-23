@@ -59,51 +59,87 @@ document.addEventListener('DOMContentLoaded', () => {
 		const mediaQuery = window.matchMedia(width);
 
 		if (mediaQuery.matches) {
-			replaceText('.replace-js', '.replace-contaner-js', 'div', 'support__item-text', 'head-text');
+			replaceText('.replace-js', '.replace-contaner-js', 'div', 'support__item-text');
 		}
 	}
 	media2('(max-width: 768px)');
+
+	function media3(width) {
+		const mediaQuery = window.matchMedia(width);
+
+		if (mediaQuery.matches) {
+			sliderInit('stage-swiper-js', 'stage-wrapper-js', 'stage-slide-js', 'stage-button-prev-js', 'stage-button-next-js', 'stage');
+			replaceText('.replace-2-js', '.replace-contaner-2-js', 'li', 'stage__cell-list-item');
+			replaceText('.replace-5-js', '.replace-contaner-5-js', 'li', 'stage__cell-list-item');
+		}
+	}
+	media3('(max-width: 991px)');
 	// end media query
 
 	// start dinamic remove
-	function replaceText(text, container, tag, addClass, addMoreClass) {
+	function replaceText(text, container, tag, addClass) {
 		const replaceText = document.querySelector(text);
 
 		if (replaceText) {
 			const textInn = replaceText.innerHTML;
 			const replaceContaner = document.querySelector(container);
 			const newElem = document.createElement(tag);
-			newElem.classList.add(addClass, addMoreClass);
+			newElem.classList.add(addClass);
+
+			if (addClass == 'support__item-text') {
+				newElem.classList.add('h3-text');
+			}
+
+			if (addClass == 'stage__cell-list-item') {
+				let getAttr = replaceText.getAttribute('data-num');
+				newElem.setAttribute('data-num', getAttr);
+			}
+
 			newElem.innerHTML = textInn;
 			replaceContaner.append(newElem);
 			removeText(text);
 		}
-	}
 
-	function removeText(replace) {
-		const remove = document.querySelector(replace).innerHTML = '';
+		function removeText(replace) {
+			const remove = document.querySelector(replace).innerHTML = '';
+		}
 	}
 	//end dinamic remove
 
 	//start slider Swiper////////////////////
-	let mySwipeRealIndex;
-		let mySwiper = new Swiper('.feedback__container', {
-			containerModifierClass: 'feedback__container', 
-			wrapperClass: 'feedback__wrapper',
-			slideClass: 'feedback__item',
+	function sliderInit(container, wrapper, slide, btnPrev, btnNext, item) {
+		let mySwiper = new Swiper(`.${container}`, {
+			containerModifierClass: container, 
+			wrapperClass: wrapper,
+			slideClass: slide,
 			parallax: false,
 			loop: false,
 			slidesPerView: 'auto',
-			spaceBetween: 30,
+			spaceBetween: 33,
 			freeMode: false,
-			centeredSlides: true,
+			centeredSlides: false,
 			simulateTouch: true,
 			autoHeight: false,
 			navigation: {
-				nextEl: '.feedback__button-next',
-				prevEl: '.feedback__button-prev',
+				nextEl: `.${btnNext}`,
+				prevEl: `.${btnPrev}`,
 			},
+			pagination: {
+				el: `.${item}-pagination-js`,
+				// type: "bullets",
+				clickable: true,
+			},
+			breakpoints: {
+				480: {
+					slidesPerView: 1.5,
+				},
+				768: {
+					slidesPerView: 2,
+				}
+			}
 		});
+	}
+	
 	//end slider Swiper////////////////////
 
 });
