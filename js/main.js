@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	scrollToBlock();
 	//end smooth scroll
+
 	// start change src
 	function changeSrc(findClass, src) {
 		const findSrc = document.querySelectorAll(findClass);
@@ -42,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		}
 	}
-	
 	// end change src
+
 	// start media query
 	function media(width) {
 		const mediaQuery = window.matchMedia(width);
@@ -53,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			changeSrc('.add-srcset-js', 'srcset');
 		}
 	}
-	media('(max-width: 767px)');
 
 	function media2(width) {
 		const mediaQuery = window.matchMedia(width);
@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			replaceText('.replace-js', '.replace-contaner-js', 'div', 'support__item-text');
 		}
 	}
-	media2('(max-width: 768px)');
 
 	function media3(width) {
 		const mediaQuery = window.matchMedia(width);
@@ -71,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			sliderInit('stage-swiper-js', 'stage-wrapper-js', 'stage-slide-js', 'stage-button-prev-js', 'stage-button-next-js', 'stage');
 			replaceText('.replace-2-js', '.replace-contaner-2-js', 'li', 'stage__cell-list-item');
 			replaceText('.replace-5-js', '.replace-contaner-5-js', 'li', 'stage__cell-list-item');
+			replaceText('.replace-nav-js', '.replace-contaner-to-js', 'div', 'participant__navigation');
 		}
 	}
 	media3('(max-width: 991px)');
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//end dinamic remove
 
-	//start slider Swiper////////////////////
+	//start slider Swiper
 	function sliderInit(container, wrapper, slide, btnPrev, btnNext, item) {
 		let mySwiper = new Swiper(`.${container}`, {
 			containerModifierClass: container, 
@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			pagination: {
 				el: `.${item}-pagination-js`,
-				// type: "bullets",
 				clickable: true,
 			},
 			breakpoints: {
@@ -138,8 +137,61 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			}
 		});
-	}
-	
-	//end slider Swiper////////////////////
 
+		let getParent = document.querySelector(`.${container}`);
+
+		mySwiper.on('slideChange', function () {
+			console.log(getParent.parentElement);
+			getParent.parentElement.classList.add('fly');
+			
+			function removeClass() {
+				getParent.parentElement.classList.remove('fly');
+			}
+			setTimeout(removeClass, 300);
+		});
+	}
+
+	function sliderParticiant(container, wrapper, slide, btnPrev, btnNext, item) {
+		let mySwiper = new Swiper(`.${container}`, {
+			containerModifierClass: container, 
+			wrapperClass: wrapper,
+			slideClass: slide,
+			parallax: false,
+			loop: true,
+			slidesPerView: 1,
+			spaceBetween: 20,
+			freeMode: false,
+			centeredSlides: false,
+			simulateTouch: true,
+			autoHeight: false,
+			speed: 4000,
+			navigation: {
+				nextEl: `.${btnNext}`,
+				prevEl: `.${btnPrev}`,
+			},
+			pagination: {
+				el: `.${item}-pagination-js`,
+				type: "fraction",
+				clickable: true,
+			},
+			autoplay: {
+				delay: 4000,
+			},
+			breakpoints: {
+				480: {
+					slidesPerView: 2,
+				},
+				768: {
+					slidesPerView: 2,
+				},
+				991: {
+					slidesPerView: 3,
+				}
+			}
+		});
+	}
+	//end slider Swiper
+	media2('(max-width: 768px)');
+	media3('(max-width: 991px)');
+	sliderParticiant('participant-swiper-js', 'participant-wrapper-js', 'participant-slide-js', 'participant-button-prev-js', 'participant-button-next-js', 'participant');
 });
