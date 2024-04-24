@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			replaceText('.replace-nav-js', '.replace-contaner-to-js', 'div', 'participant__navigation');
 		}
 	}
-	media3('(max-width: 991px)');
 	// end media query
 
 	// start dinamic remove
@@ -191,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 	//end slider Swiper
+	media('(max-width: 767px)');
 	media2('(max-width: 768px)');
 	media3('(max-width: 991px)');
 	sliderParticiant('participant-swiper-js', 'participant-wrapper-js', 'participant-slide-js', 'participant-button-prev-js', 'participant-button-next-js', 'participant');

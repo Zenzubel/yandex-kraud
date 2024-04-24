@@ -194,21 +194,23 @@ body.lock {
 }
 
 .bg-container--chess:before {
-  bottom: -3%;
+  bottom: -4%;
   right: 42%;
-  width: 100px;
-  height: 142px;
+  width: 106px;
+  height: 144px;
   background-image: url("../images/main-screen/chess-horse.png");
 }
 
 .bg-container--back {
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(1.2);
 }
 
 .bg-container--sun,
 .bg-container--city,
 .bg-container--king,
 .bg-container--qween {
+  transform: translate(-57.9%, 28.8%) scale(0.53);
+  transform: translate(-49.9%, -0.2%) scale(1);
   -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
   transition-timing-function: ease;
@@ -218,6 +220,11 @@ body.lock {
   animation-direction: alternate;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+}
+
+.bg-container--sun {
+  transform: translate(-57%, 23.8%) scale(0.45);
+  transform: translate(-49.9%, -0.2%) scale(1);
 }
 
 .bg-picture {
@@ -871,7 +878,8 @@ body.lock {
   .bg-container--city,
   .bg-container--king,
   .bg-container--qween {
-    transform: translate(-50%, 15%) scale(0.7);
+    transform: translate(-57%, 26%) scale(0.6);
+    transform: translate(-49.9%, -0.2%) scale(1);
   }
 
   .main-screen__item {
@@ -947,6 +955,7 @@ body.lock {
   }
 
   .bg-container--back {
+    transform: translateX(-50%);
     opacity: 1;
   }
 
@@ -1329,8 +1338,8 @@ body.lock {
   }
 
   .participant__warpper {
-    padding-top: calc(96px + (202 - 96) * ((100vw - 320px) / (1260 - 320)));
-    padding-bottom: calc(97px + (140 - 97) * ((100vw - 320px) / (1260 - 320)));
+    padding-top: calc(116px + (202 - 116) * ((100vw - 320px) / (1260 - 320)));
+    padding-bottom: calc(99px + (140 - 99) * ((100vw - 320px) / (1260 - 320)));
   }
 
   .participant__container {
@@ -1500,7 +1509,7 @@ body.lock {
   }
 
   .stage__cell {
-    padding: 62px 40px 34px 72px;
+    padding: 62px 20px 34px 72px;
   }
 
   .stage__navigation {
